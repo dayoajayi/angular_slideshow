@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html ng-app>
 <head>
 	<title>Start of an Angular Slideshow</title>
     <style>
@@ -15,51 +16,62 @@
         width: auto\9; /* ie8 */
     }
     </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
 </head>
-<body>
+<body ng-controller="SlideShowCtrl">
 	<table>
-		<tr>
+		<tr ng-show="one">
 			<td>
 				<img src="angular_slide_1.svg"/>
 			</td>
 		</tr>
-		<tr>
+		<tr ng-show="one">
 			<td>
 				<a class="left" href="">back</a>
 				<a class="right" href="#two">next</a>
 			</td>
 		</tr>
-		<tr>
+		<tr ng-show="two">
 			<td>
 				<img src="angular_slide_2.svg"/>
 			</td>
 		</tr>
-		<tr>
+		<tr ng-show="two">
 			<td>
 				<a class="left" href="#one">back</a>
 				<a class="right" href="#three">next</a>
 			</td>
 		</tr>
-		<tr>
+		<tr ng-show="three">
 			<td>
 				<img src="angular_slide_3.svg"/>
 			</td>
 		</tr>	
-		<tr>
+		<tr ng-show="three">
 			<td>
 				<a class="left" href="#two">back</a>
 				<a class="right" href="#four">next</a>
 			</td>
 		</tr>
-		<tr>
+		<tr ng-show="four">
 			<td>
 				<img src="angular_slide_4.svg"/>
 			</td>
-		</tr>
-		<td>
-			<a class="left" href="#three">back</a>
-			<a class="right" href="">next</a>
-		</td>		
-	</table>
+        </tr>
+        <tr ng-show="four">
+            <td>
+                <a class="left" href="#three">back</a>
+                <a class="right" href="">next</a>
+            </td>	
+        </tr>    
+    </table>
+    <script>
+        function SlideShowCtrl($scope) {
+            $scope.one = true;
+            $scope.two = false;
+            $scope.three = false;
+            $scope.four = false;
+        }
+    </script>
 </body>
 </html>
