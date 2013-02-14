@@ -24,8 +24,8 @@
 				<img src="angular_slide_1.svg"/>
 			</td>
 		</tr>
-		<tr ng-show="currentSlide == 1">
-			<td>
+		<tr ng-show="currentSlide == 1" style="display:none;" ng-style="display:block;">
+			<td> 
 				<a class="left" href="">back</a>
 				<a ng-click="currentSlide = currentSlide + 1" class="right" href="#two">next</a>
 			</td>
@@ -35,7 +35,7 @@
 				<img src="angular_slide_2.svg"/>
 			</td>
 		</tr>
-		<tr ng-show="currentSlide == 2">
+		<tr ng-show="currentSlide == 2" style="display:none;" ng-style="display:block;">
 			<td>
 				<a ng-click="currentSlide = currentSlide - 1" class="left" href="#one">back</a>
 				<a ng-click="currentSlide = currentSlide + 1" class="right" href="#three">next</a>
@@ -46,7 +46,7 @@
 				<img src="angular_slide_3.svg"/>
 			</td>
 		</tr>	
-		<tr ng-show="currentSlide == 3">
+		<tr ng-show="currentSlide == 3" style="display:none;" ng-style="display:block;">
 			<td>
 				<a ng-click="currentSlide = currentSlide - 1" class="left" href="#two">back</a>
 				<a ng-click="currentSlide = currentSlide + 1" class="right" href="#four">next</a>
@@ -57,7 +57,7 @@
 				<img src="angular_slide_4.svg"/>
 			</td>
         </tr>
-        <tr ng-show="currentSlide == 4">
+        <tr ng-show="currentSlide == 4" style="display:none;" ng-style="display:block;">
             <td>
                 <a ng-click="currentSlide = currentSlide - 1" class="left" href="#three">back</a>
                 <a class="right" href="">next</a>
