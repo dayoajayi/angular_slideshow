@@ -24,7 +24,7 @@
 				<img ng-style="slideStyle" src="angular_slide_1.svg"/>
 			</td>
 		</tr>
-		<tr ng-show="currentSlide == 1" style="display:none;" ng-style="displayNav">
+		<tr ng-show="currentSlide == 1" style="display:none;">
 			<td> 
 				<a class="left">back</a>
 				<a ng-click="nav(2)" class="right">next</a>
@@ -71,7 +71,6 @@
 			}
             $scope.height = 0;
             $scope.width = 0;
-            $scope.displayNav = {display: "block"};
             $scope.showStyle = {};
             $scope.slideStyle = {};
 
