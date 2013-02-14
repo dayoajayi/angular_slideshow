@@ -19,7 +19,7 @@
 </head>
 <body ng-controller="SlideShowCtrl">
 	<table ng-style="showStyle">
-		<tr ng-show="currentSlide == 1">
+		<tr id="one" ng-show="currentSlide == 1">
 			<td>
 				<img ng-style="slideStyle" src="angular_slide_1.svg"/>
 			</td>
@@ -30,7 +30,7 @@
 				<a ng-click="currentSlide = currentSlide + 1" class="right" href="#two">next</a>
 			</td>
 		</tr>
-		<tr ng-show="currentSlide == 2">
+		<tr id="two" ng-show="currentSlide == 2">
 			<td>
 				<img src="angular_slide_2.svg"/>
 			</td>
@@ -41,7 +41,7 @@
 				<a ng-click="currentSlide = currentSlide + 1" class="right" href="#three">next</a>
 			</td>
 		</tr>
-		<tr ng-show="currentSlide == 3">
+		<tr id="three" ng-show="currentSlide == 3">
 			<td>
 				<img src="angular_slide_3.svg"/>
 			</td>
@@ -52,7 +52,7 @@
 				<a ng-click="currentSlide = currentSlide + 1" class="right" href="#four">next</a>
 			</td>
 		</tr>
-		<tr ng-show="currentSlide == 4">
+		<tr id="four" ng-show="currentSlide == 4">
 			<td>
 				<img src="angular_slide_4.svg"/>
 			</td>
