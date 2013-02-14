@@ -84,30 +84,25 @@
                 $scope.height = $window.innerHeight;
             }
 
-            $scope.updateWidth = function () {
-                $scope.width = $window.innerWidth;
-            }
-
             $scope.slideAreaAdjustment = function () {
                 if ($scope.height < $scope.width) {
+                    console.log($scope.height + ", " + $scope.width);
                     var showHeight = $scope.height + "px";
                     var slideHeight = Math.round($scope.height * 0.90) + "px";
-                    $scope.showStyle = { minHeight: showHeight, maxHeight: showHeight};
-                    $scope.slideStyle = { maxHeight: slideHeight};
+                    $scope.showStyle = {minHeight: showHeight, maxHeight: showHeight};
+                    $scope.slideStyle = {maxHeight: slideHeight};
                 } else {
                     $scope.showStyle = {};
-                    $scope.slideStyle = {}
+                    $scope.slideStyle = {};
                 }
             }
 
             $scope.updateHeight();
-            $scope.updateWidth();
             $scope.slideAreaAdjustment();
 
             $window.onresize = function () {
-                $scope.updateWidth();
                 $scope.updateHeight();
-                $scope.columnAdjustments();
+                $scope.slideAreaAdjustment();
                 $scope.$apply();
             }
         }
