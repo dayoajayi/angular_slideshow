@@ -13,64 +13,60 @@
         min-width: 100%;
         max-width: 100%;
         height: auto;
-        width: auto\9; /* ie8 */
     }
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
 </head>
 <body ng-controller="SlideShowCtrl">
 	<table>
-		<tr ng-show="one">
+		<tr ng-show="currentSlide == 1">
 			<td>
 				<img src="angular_slide_1.svg"/>
 			</td>
 		</tr>
-		<tr ng-show="one">
+		<tr ng-show="currentSlide == 1">
 			<td>
 				<a class="left" href="">back</a>
-				<a class="right" href="#two">next</a>
+				<a ng-click="currentSlide = currentSlide + 1" class="right" href="#two">next</a>
 			</td>
 		</tr>
-		<tr ng-show="two">
+		<tr ng-show="currentSlide == 2">
 			<td>
 				<img src="angular_slide_2.svg"/>
 			</td>
 		</tr>
-		<tr ng-show="two">
+		<tr ng-show="currentSlide == 2">
 			<td>
-				<a class="left" href="#one">back</a>
-				<a class="right" href="#three">next</a>
+				<a ng-click="currentSlide = currentSlide - 1" class="left" href="#one">back</a>
+				<a ng-click="currentSlide = currentSlide + 1" class="right" href="#three">next</a>
 			</td>
 		</tr>
-		<tr ng-show="three">
+		<tr ng-show="currentSlide == 3">
 			<td>
 				<img src="angular_slide_3.svg"/>
 			</td>
 		</tr>	
-		<tr ng-show="three">
+		<tr ng-show="currentSlide == 3">
 			<td>
-				<a class="left" href="#two">back</a>
-				<a class="right" href="#four">next</a>
+				<a ng-click="currentSlide = currentSlide - 1" class="left" href="#two">back</a>
+				<a ng-click="currentSlide = currentSlide + 1" class="right" href="#four">next</a>
 			</td>
 		</tr>
-		<tr ng-show="four">
+		<tr ng-show="currentSlide == 4">
 			<td>
 				<img src="angular_slide_4.svg"/>
 			</td>
         </tr>
-        <tr ng-show="four">
+        <tr ng-show="currentSlide == 4">
             <td>
-                <a class="left" href="#three">back</a>
+                <a ng-click="currentSlide = currentSlide - 1" class="left" href="#three">back</a>
                 <a class="right" href="">next</a>
             </td>	
         </tr>    
     </table>
     <script>
         function SlideShowCtrl($scope) {
-            $scope.one = true;
-            $scope.two = false;
-            $scope.three = false;
-            $scope.four = false;
+            $scope.currentSlide = 1;
         }
     </script>
 </body>
