@@ -24,7 +24,7 @@
 				<img ng-style="slideStyle" src="angular_slide_1.svg"/>
 			</td>
 		</tr>
-		<tr ng-show="currentSlide == 1" style="display:none;" ng-style="display:block;">
+		<tr ng-show="currentSlide == 1" style="display:none;" ng-style="displayNav">
 			<td> 
 				<a class="left">back</a>
 				<a ng-click="nav(2)" class="right">next</a>
@@ -35,7 +35,7 @@
 				<img ng-style="slideStyle" src="angular_slide_2.svg"/>
 			</td>
 		</tr>
-		<tr ng-show="currentSlide == 2" style="display:none;" ng-style="display:block;">
+		<tr ng-show="currentSlide == 2" style="display:none;">
 			<td>
 				<a ng-click="nav(1)" class="left">back</a>
 				<a ng-click="nav(3)" class="right">next</a>
@@ -46,7 +46,7 @@
 				<img ng-style="slideStyle" src="angular_slide_3.svg"/>
 			</td>
 		</tr>	
-		<tr ng-show="currentSlide == 3" style="display:none;" ng-style="display:block;">
+		<tr ng-show="currentSlide == 3" style="display:none;">
 			<td>
 				<a ng-click="nav(2)" class="left">back</a>
 				<a ng-click="nav(4)" class="right">next</a>
@@ -57,7 +57,7 @@
 				<img ng-style="slideStyle" src="angular_slide_4.svg"/>
 			</td>
         </tr>
-        <tr ng-show="currentSlide == 4" style="display:none;" ng-style="display:block;">
+        <tr ng-show="currentSlide == 4" style="display:none;">
             <td>
                 <a ng-click="nav(3)" class="left">back</a>
             </td>    
@@ -68,6 +68,7 @@
             $scope.currentSlide = 1;
             $scope.height = 0;
             $scope.width = 0;
+            $scope.displayNav = {display: "block"};
             $scope.showStyle = {};
             $scope.slideStyle = {};
 
