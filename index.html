@@ -18,10 +18,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
 </head>
 <body ng-controller="SlideShowCtrl">
-	<table>
+	<table ng-style="showStyle">
 		<tr ng-show="currentSlide == 1">
 			<td>
-				<img src="angular_slide_1.svg"/>
+				<img ng-style="slideStyle" src="angular_slide_1.svg"/>
 			</td>
 		</tr>
 		<tr ng-show="currentSlide == 1" style="display:none;" ng-style="display:block;">
@@ -65,8 +65,43 @@
         </tr>    
     </table>
     <script>
-        function SlideShowCtrl($scope) {
+        function SlideShowCtrl($scope, $window) {
             $scope.currentSlide = 1;
+            $scope.height = 0;
+            $scope.width = 0;
+            $scope.showStyle = {};
+            $scope.slideStyle = {};
+
+            $scope.updateHeight = function () {
+                $scope.height = $window.innerHeight;
+            }
+
+            $scope.updateWidth = function () {
+                $scope.width = $window.innerWidth;
+            }
+
+            $scope.slideAreaAdjustment = function () {
+                if ($scope.height < $scope.width) {
+                    var showHeight = $scope.height + "px";
+                    var slideHeight = Math.round($scope.height * 0.90) + "px";
+                    $scope.showStyle = { minHeight: showHeight, maxHeight: showHeight};
+                    $scope.slideStyle = { maxHeight: slideHeight};
+                } else {
+                    $scope.showStyle = {};
+                    $scope.slideStyle = {}
+                }
+            }
+
+            $scope.updateHeight();
+            $scope.updateWidth();
+            $scope.slideAreaAdjustment();
+
+            $window.onresize = function () {
+                $scope.updateWidth();
+                $scope.updateHeight();
+                $scope.columnAdjustments();
+                $scope.$apply();
+            }
         }
     </script>
 </body>
