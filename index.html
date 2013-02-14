@@ -32,7 +32,7 @@
 		</tr>
 		<tr id="two" ng-show="currentSlide == 2">
 			<td>
-				<img src="angular_slide_2.svg"/>
+				<img ng-style="slideStyle" src="angular_slide_2.svg"/>
 			</td>
 		</tr>
 		<tr ng-show="currentSlide == 2" style="display:none;" ng-style="display:block;">
@@ -43,7 +43,7 @@
 		</tr>
 		<tr id="three" ng-show="currentSlide == 3">
 			<td>
-				<img src="angular_slide_3.svg"/>
+				<img ng-style="slideStyle" src="angular_slide_3.svg"/>
 			</td>
 		</tr>	
 		<tr ng-show="currentSlide == 3" style="display:none;" ng-style="display:block;">
@@ -54,7 +54,7 @@
 		</tr>
 		<tr id="four" ng-show="currentSlide == 4">
 			<td>
-				<img src="angular_slide_4.svg"/>
+				<img ng-style="slideStyle" src="angular_slide_4.svg"/>
 			</td>
         </tr>
         <tr ng-show="currentSlide == 4" style="display:none;" ng-style="display:block;">
