@@ -18,44 +18,44 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
 </head>
 <body ng-controller="SlideShowCtrl">
-    <table ng-style="showStyle">
-        <tr id="one" ng-show="currentSlide == 1">
-            <td>
-                <img ng-style="slideStyle" src="angular_slide_1.svg"/>
-            </td>
-        </tr>
-        <tr ng-show="currentSlide == 1" style="display:none;" ng-style="display:block;">
-            <td> 
-                <a class="left" href="">back</a>
-                <a ng-click="nav(2)" class="right">next</a>
-            </td>
-        </tr>
-        <tr id="two" ng-show="currentSlide == 2">
-            <td>
-                <img src="angular_slide_2.svg"/>
-            </td>
-        </tr>
-        <tr ng-show="currentSlide == 2" style="display:none;" ng-style="display:block;">
-            <td>
-                <a ng-click="nav(1)" class="left">back</a>
-                <a ng-click="nav(3)" class="right">next</a>
-            </td>
-        </tr>
-        <tr id="three" ng-show="currentSlide == 3">
-            <td>
-                <img src="angular_slide_3.svg"/>
-            </td>
-        </tr>    
-        <tr ng-show="currentSlide == 3" style="display:none;" ng-style="display:block;">
-            <td>
-                <a ng-click="nav(2)" class="left">back</a>
-                <a ng-click="nav(4)" class="right">next</a>
-            </td>
-        </tr>
-        <tr id="four" ng-show="currentSlide == 4">
-            <td>
-                <img src="angular_slide_4.svg"/>
-            </td>
+	<table ng-style="showStyle">
+		<tr id="one" ng-show="currentSlide == 1">
+			<td>
+				<img ng-style="slideStyle" src="angular_slide_1.svg"/>
+			</td>
+		</tr>
+		<tr ng-show="currentSlide == 1" style="display:none;" ng-style="display:block;">
+			<td> 
+				<a class="left">back</a>
+				<a ng-click="nav(2)" class="right">next</a>
+			</td>
+		</tr>
+		<tr id="two" ng-show="currentSlide == 2">
+			<td>
+				<img ng-style="slideStyle" src="angular_slide_2.svg"/>
+			</td>
+		</tr>
+		<tr ng-show="currentSlide == 2" style="display:none;" ng-style="display:block;">
+			<td>
+				<a ng-click="nav(1)" class="left">back</a>
+				<a ng-click="nav(3)" class="right">next</a>
+			</td>
+		</tr>
+		<tr id="three" ng-show="currentSlide == 3">
+			<td>
+				<img ng-style="slideStyle" src="angular_slide_3.svg"/>
+			</td>
+		</tr>	
+		<tr ng-show="currentSlide == 3" style="display:none;" ng-style="display:block;">
+			<td>
+				<a ng-click="nav(2)" class="left">back</a>
+				<a ng-click="nav(4)" class="right">next</a>
+			</td>
+		</tr>
+		<tr id="four" ng-show="currentSlide == 4">
+			<td>
+				<img ng-style="slideStyle" src="angular_slide_4.svg"/>
+			</td>
         </tr>
         <tr ng-show="currentSlide == 4" style="display:none;" ng-style="display:block;">
             <td>
