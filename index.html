@@ -19,7 +19,7 @@
 </head>
 <body ng-controller="SlideShowCtrl">
 	<table ng-style="showStyle">
-		<tr id="one" ng-show="currentSlide == 1">
+		<tr id="1" ng-show="currentSlide == 1">
 			<td>
 				<img ng-style="slideStyle" src="angular_slide_1.svg"/>
 			</td>
@@ -30,7 +30,7 @@
 				<a ng-click="nav(2)" class="right">next</a>
 			</td>
 		</tr>
-		<tr id="two" ng-show="currentSlide == 2">
+		<tr id="2" ng-show="currentSlide == 2">
 			<td>
 				<img ng-style="slideStyle" src="angular_slide_2.svg"/>
 			</td>
@@ -41,7 +41,7 @@
 				<a ng-click="nav(3)" class="right">next</a>
 			</td>
 		</tr>
-		<tr id="three" ng-show="currentSlide == 3">
+		<tr id="3" ng-show="currentSlide == 3">
 			<td>
 				<img ng-style="slideStyle" src="angular_slide_3.svg"/>
 			</td>
@@ -52,7 +52,7 @@
 				<a ng-click="nav(4)" class="right">next</a>
 			</td>
 		</tr>
-		<tr id="four" ng-show="currentSlide == 4">
+		<tr id="4" ng-show="currentSlide == 4">
 			<td>
 				<img ng-style="slideStyle" src="angular_slide_4.svg"/>
 			</td>
@@ -66,6 +66,9 @@
     <script>
         function SlideShowCtrl($scope, $window) {
             $scope.currentSlide = 1;
+			if (window.location.hash != '') {
+				$scope.currentSlide = window.location.hash.substring(1);
+			}
             $scope.height = 0;
             $scope.width = 0;
             $scope.displayNav = {display: "block"};
