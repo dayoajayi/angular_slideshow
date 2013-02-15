@@ -23,12 +23,12 @@
 </head>
 <body ng-controller="SlideShowCtrl">
     <table ng-style="showStyle">
-        <tr id="1" ng-show="currentSlide == 1 && !touchScreen">
+        <tr id="1" ng-show="currentSlide == 1">
             <td>
                 <img ngm-swipeleft="nav(2)" ng-style="slideStyle" src="angular_slide_1.svg"/>
             </td>
         </tr>
-        <tr ng-show="currentSlide == 1">
+        <tr ng-show="currentSlide == 1 && !touchScreen">
             <td>
                 <a ng-click="nav(2)" class="right">next</a>
             </td>
