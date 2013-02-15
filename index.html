@@ -3,6 +3,9 @@
 <head>
     <title>Dallas GeekNight Angular Slideshow</title>
     <style>
+    a.right {
+        float: right;
+    }
     table {
         min-width: 100%;
     }
@@ -20,13 +23,13 @@
 </head>
 <body ng-controller="SlideShowCtrl">
     <table ng-style="showStyle">
-        <tr id="1" ng-show="currentSlide == 1">
+        <tr id="1" ng-show="currentSlide == 1 && !touchScreen">
             <td>
                 <img ngm-swipeleft="nav(2)" ng-style="slideStyle" src="angular_slide_1.svg"/>
             </td>
         </tr>
-        <tr ng-show="currentSlide == 1 && !touchScreen" style="display:none;">
-            <td> 
+        <tr ng-show="currentSlide == 1">
+            <td>
                 <a ng-click="nav(2)" class="right">next</a>
             </td>
         </tr>
