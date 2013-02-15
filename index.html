@@ -22,7 +22,7 @@
 	<table ng-style="showStyle">
 		<tr id="1" ng-show="currentSlide == 1">
 			<td>
-				<img ngm-swiperight="nav(2)" ng-style="slideStyle" src="angular_slide_1.svg"/>
+				<img ngm-swipeleft="nav(2)" ng-style="slideStyle" src="angular_slide_1.svg"/>
 			</td>
 		</tr>
 		<tr ng-show="currentSlide == 1" style="display:none;">
@@ -32,7 +32,7 @@
 		</tr>
 		<tr id="2" ng-show="currentSlide == 2">
 			<td>
-				<img ngm-swipeleft="nav(1)" ngm-swiperight="nav(3)" ng-style="slideStyle" src="angular_slide_2.svg"/>
+				<img ngm-swiperight="nav(1)" ngm-swipeleft="nav(3)" ng-style="slideStyle" src="angular_slide_2.svg"/>
 			</td>
 		</tr>
 		<tr ng-show="currentSlide == 2" style="display:none;">
@@ -43,7 +43,7 @@
 		</tr>
 		<tr id="3" ng-show="currentSlide == 3">
 			<td>
-				<img ngm-swipeleft="nav(2)" ngm-swiperight="nav(4)" ng-style="slideStyle" src="angular_slide_3.svg"/>
+				<img ngm-swiperight="nav(2)" ngm-swipeleft="nav(4)" ng-style="slideStyle" src="angular_slide_3.svg"/>
 			</td>
 		</tr>	
 		<tr ng-show="currentSlide == 3" style="display:none;">
@@ -54,7 +54,7 @@
 		</tr>
 		<tr id="4" ng-show="currentSlide == 4">
 			<td>
-				<img ngm-swipeleft="nav(3)" ng-style="slideStyle" src="angular_slide_4.svg"/>
+				<img ngm-swiperight="nav(3)" ng-style="slideStyle" src="angular_slide_4.svg"/>
 			</td>
         </tr>
         <tr ng-show="currentSlide == 4" style="display:none;">
