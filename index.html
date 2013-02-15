@@ -6,6 +6,10 @@
     a.right {
         float: right;
     }
+    div.navitems {
+        margin-left: 33%; 
+        margin-right: 33%;
+    }
     table {
         min-width: 100%;
     }
@@ -17,52 +21,53 @@
         max-width: 100%;
         height: auto;
     }
+    td {
+        border: "0";
+    }
     </style>
     <script src="js/jquery-mobile-angular-adapter-standalone-1.2.1-SNAPSHOT.js" type="text/javascript"></script>
     <link href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.css" rel="stylesheet" type="text/css">
 </head>
 <body ng-controller="SlideShowCtrl">
-    <table ng-style="showStyle">
+    <table ng-style="tableStyle">
         <tr id="1" ng-show="currentSlide == 1">
             <td>
-                <img ngm-swipeleft="nav(2)" ng-style="slideStyle" src="angular_slide_1.svg"/>
+                <img ngm-swipeleft="nav(2)" ng-style="imgStyle" src="angular_slide_1.svg"/>
             </td>
         </tr>
         <tr ng-show="currentSlide == 1 && !touchScreen">
             <td>
-                <a ng-click="nav(2)" class="right">next</a>
+                <div class="navitems"> w: {{width}}, h: {{height}}<a class="right" ng-click="nav(2)">next</a></div>
             </td>
         </tr>
         <tr id="2" ng-show="currentSlide == 2">
             <td>
-                <img ngm-swiperight="nav(1)" ngm-swipeleft="nav(3)" ng-style="slideStyle" src="angular_slide_2.svg"/>
+                <img ngm-swiperight="nav(1)" ngm-swipeleft="nav(3)" ng-style="imgStyle" src="angular_slide_2.svg"/>
             </td>
         </tr>
         <tr ng-show="currentSlide == 2 && !touchScreen" style="display:none;">
             <td>
-                <a ng-click="nav(1)" class="left">back</a>
-                <a ng-click="nav(3)" class="right">next</a>
+                <div class="navitems"><a ng-click="nav(1)">back</a><a class="right" ng-click="nav(3)">next</a></div>
             </td>
         </tr>
         <tr id="3" ng-show="currentSlide == 3">
             <td>
-                <img ngm-swiperight="nav(2)" ngm-swipeleft="nav(4)" ng-style="slideStyle" src="angular_slide_3.svg"/>
+                <img ngm-swiperight="nav(2)" ngm-swipeleft="nav(4)" ng-style="imgStyle" src="angular_slide_3.svg"/>
             </td>
         </tr>    
         <tr ng-show="currentSlide == 3 && !touchScreen" style="display:none;">
             <td>
-                <a ng-click="nav(2)" class="left">back</a>
-                <a ng-click="nav(4)" class="right">next</a>
+                <div class="navitems"><a ng-click="nav(2)">back</a><a class="right" ng-click="nav(4)">next</a></div>
             </td>
         </tr>
         <tr id="4" ng-show="currentSlide == 4">
             <td>
-                <img ngm-swiperight="nav(3)" ng-style="slideStyle" src="angular_slide_4.svg"/>
+                <img ngm-swiperight="nav(3)" ng-style="imgStyle" src="angular_slide_4.svg"/>
             </td>
         </tr>
         <tr ng-show="currentSlide == 4 && !touchScreen" style="display:none;">
             <td>
-                <a ng-click="nav(3)" class="left">back</a>
+                <div class="navitems"><a ng-click="nav(3)">back</a></div>
             </td>    
         </tr>    
     </table>
@@ -75,8 +80,8 @@
             }
             $scope.height = 0;
             $scope.width = 0;
-            $scope.showStyle = {};
-            $scope.slideStyle = {};
+            $scope.tableStyle = {};
+            $scope.imgStyle = {};
             
             $scope.touchScreen = false;
             
@@ -91,28 +96,28 @@
               window.location.hash = "#" + toSlide;
             }
             
+            $scope.updateWidth = function() {
+                  $scope.width = $window.innerWidth;
+              }            
+            
             $scope.updateHeight = function () {
                 $scope.height = $window.innerHeight;
             }
 
             $scope.slideAreaAdjustment = function () {
-                if ($scope.height < $scope.width) {
-                    console.log($scope.height + ", " + $scope.width);
-                    var showHeight = $scope.height + "px";
-                    var slideHeight = Math.round($scope.height * 0.90) + "px";
-                    $scope.showStyle = {minHeight: showHeight, maxHeight: showHeight};
-                    $scope.slideStyle = {maxHeight: slideHeight};
-                } else {
-                    $scope.showStyle = {};
-                    $scope.slideStyle = {};
+                if ($scope.touchScreen == false) {
+                    $scope.tableStyle = {border: "0", maxHeight: $scope.height, maxWidth: $scope.width};
+                    $scope.imgStyle = {minHeight: "70%", maxHeight: "70%"};
                 }
             }
 
+            $scope.updateWidth();
             $scope.updateHeight();
             $scope.slideAreaAdjustment();
 
             $window.onresize = function () {
                 $scope.updateHeight();
+                $scope.updateWidth();
                 $scope.slideAreaAdjustment();
                 $scope.$apply();
             }
