@@ -35,7 +35,7 @@
                 <img ngm-swipeleft="nav(2)" ng-style="imgStyle" src="angular_slide_1.svg"/>
             </td>
         </tr>
-        <tr ng-show="currentSlide == 1 && !touchScreen">
+        <tr ng-show="currentSlide == 1 && !isTouchScreen">
             <td>
                 <div class="navitems"> w: {{width}}, h: {{height}}<a class="right" ng-click="nav(2)">next</a></div>
             </td>
@@ -45,7 +45,7 @@
                 <img ngm-swiperight="nav(1)" ngm-swipeleft="nav(3)" ng-style="imgStyle" src="angular_slide_2.svg"/>
             </td>
         </tr>
-        <tr ng-show="currentSlide == 2 && !touchScreen" style="display:none;">
+        <tr ng-show="currentSlide == 2 && !isTouchScreen" style="display:none;">
             <td>
                 <div class="navitems"><a ng-click="nav(1)">back</a><a class="right" ng-click="nav(3)">next</a></div>
             </td>
@@ -55,7 +55,7 @@
                 <img ngm-swiperight="nav(2)" ngm-swipeleft="nav(4)" ng-style="imgStyle" src="angular_slide_3.svg"/>
             </td>
         </tr>    
-        <tr ng-show="currentSlide == 3 && !touchScreen" style="display:none;">
+        <tr ng-show="currentSlide == 3 && !isTouchScreen" style="display:none;">
             <td>
                 <div class="navitems"><a ng-click="nav(2)">back</a><a class="right" ng-click="nav(4)">next</a></div>
             </td>
@@ -65,7 +65,7 @@
                 <img ngm-swiperight="nav(3)" ng-style="imgStyle" src="angular_slide_4.svg"/>
             </td>
         </tr>
-        <tr ng-show="currentSlide == 4 && !touchScreen" style="display:none;">
+        <tr ng-show="currentSlide == 4 && !isTouchScreen" style="display:none;">
             <td>
                 <div class="navitems"><a ng-click="nav(3)">back</a></div>
             </td>    
@@ -78,17 +78,18 @@
             if (window.location.hash != '') {
                 $scope.currentSlide = window.location.hash.substring(1);
             }
+			
             $scope.height = 0;
             $scope.width = 0;
             $scope.tableStyle = {};
             $scope.imgStyle = {};
             
-            $scope.touchScreen = false;
+            $scope.isTouchScreen = false;
             
             var el = document.createElement('div');
             el.setAttribute('ongesturestart', 'return;');
             if (typeof el.ongesturestart === "function") {
-                   $scope.touchScreen = true;
+                   $scope.isTouchScreen = true;
             }
 
             $scope.nav = function(toSlide) {
@@ -105,7 +106,7 @@
             }
 
             $scope.slideAreaAdjustment = function () {
-                if ($scope.touchScreen == false) {
+                if ($scope.isTouchScreen == false) {
                     $scope.tableStyle = {border: "0", maxHeight: $scope.height, maxWidth: $scope.width};
                     $scope.imgStyle = {minHeight: "70%", maxHeight: "70%"};
                 }
